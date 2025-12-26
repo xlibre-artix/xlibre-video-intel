@@ -1,0 +1,68 @@
+---
+version: 25.0.0-3
+pkgbase:
+  name: xlibre-video-intel
+  pkgdesc: Libre fork of X.Org Intel i810/i830/i915/945G/G965+ video drivers
+  pkgver: 25.0.0
+  pkgrel: 3
+  url: https://github.com/X11Libre/xf86-video-intel
+  install: xlibre-video-intel.install
+  arch:
+    - x86_64
+  groups:
+    - xlibre-drivers
+  license:
+    - MIT
+  makedepends:
+    - xlibre-xserver-devel>=25.0
+    - xorgproto
+    - libxv
+    - meson
+    - libxrandr
+    - libxinerama
+    - libxcursor
+    - libxtst
+    - libxss
+  depends:
+    - xlibre-xserver>=25.0
+    - glibc
+    - mesa
+    - libxvmc
+    - pixman
+    - xcb-util>=0.3.9
+    - libudev
+    - libxcb
+    - libxfixes
+    - libxshmfence
+    - libdrm
+    - libxrender
+    - libx11
+    - libxdamage
+    - libxext
+    - libpciaccess
+  optdepends:
+    - 'libxrandr: for intel-virtual-output'
+    - 'libxinerama: for intel-virtual-output'
+    - 'libxcursor: for intel-virtual-output'
+    - 'libxtst: for intel-virtual-output'
+    - 'libxss: for intel-virtual-output'
+  provides:
+    - xf86-video-intel
+    - xf86-video-intel-uxa
+    - xf86-video-intel-sna
+  conflicts:
+    - xf86-video-intel
+  replaces:
+    - xf86-video-intel-sna
+    - xf86-video-intel-uxa
+    - xf86-video-i810
+    - xf86-video-intel-legacy
+  options:
+    - '!lto'
+  source:
+    - https://github.com/X11Libre/xf86-video-intel/archive/refs/tags/xlibre-xf86-video-intel-25.0.0.tar.gz
+  sha256sums:
+    - c37410bc6efd5789adcd9fd2c91308a73101b08419309d4755bd6b5fa5254eff
+pkgname:
+  - name: xlibre-video-intel
+# generated with artixpkg 0.37.4-1-any

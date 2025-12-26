@@ -1,11 +1,11 @@
 ---
 team: galaxy
 actions:
-  addRepo: null
+  addRepo: galaxy-gremlins
   removeRepo: null
-  triggersBuild: false
+  triggersBuild: true
   triggersRebuild: false
-  triggersRepoAdd: false
+  triggersRepoAdd: true
   triggersRepoRemove: false
   triggersNoCheck: false
 repos:
@@ -50,8 +50,9 @@ repos:
     packages: []
     debug: []
   galaxy-gremlins:
-    version: null
-    packages: []
+    version: 25.0.0-3
+    packages:
+      - xlibre-video-intel-25.0.0-3-x86_64.pkg.tar.zst
     debug: []
   galaxy:
     version: null
