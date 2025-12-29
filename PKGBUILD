@@ -2,7 +2,7 @@
 
 pkgname=xlibre-video-intel
 pkgver=25.0.0
-pkgrel=5
+pkgrel=6
 arch=(x86_64)
 license=('MIT')
 install=$pkgname.install
@@ -15,9 +15,9 @@ conflicts=("${_pkgname}")
 provides=("${_pkgname}")
 source=("${url}/archive/refs/tags/xlibre-${_pkgname}-${pkgver}.tar.gz")
 groups=('xlibre-drivers')
-depends+=('mesa' 'libxvmc' 'pixman>=0.27.1' 'xcb-util>=0.3.9' 'libudev'
+depends+=('mesa' 'libxvmc' 'pixman>=0.27.1' 'xcb-util>=0.3.9'
          'libxcb' 'libxfixes' 'libxshmfence' 'libdrm' 'libxrender'
-         'libx11' 'libxdamage' 'libxext' 'libpciaccess')
+         'libx11' 'libxdamage' 'libxext' 'libpciaccess>= 0.10')
 makedepends+=('libxv' 'meson>=0.50'
              # additional deps for intel-virtual-output
              'libxrandr' 'libxinerama' 'libxcursor' 'libxtst' 'libxss')
