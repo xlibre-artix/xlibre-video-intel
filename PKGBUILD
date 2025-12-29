@@ -1,8 +1,8 @@
-# Maintainer: artist for Artix Linux
+# Maintainer: artist for Artix Linux and XLibre <artist@artixlinux.org>
 
 pkgname=xlibre-video-intel
 pkgver=25.0.0
-pkgrel=4
+pkgrel=5
 arch=(x86_64)
 license=('MIT')
 install=$pkgname.install
@@ -15,10 +15,10 @@ conflicts=("${_pkgname}")
 provides=("${_pkgname}")
 source=("${url}/archive/refs/tags/xlibre-${_pkgname}-${pkgver}.tar.gz")
 groups=('xlibre-drivers')
-depends+=('mesa' 'libxvmc' 'pixman' 'xcb-util>=0.3.9'
+depends+=('mesa' 'libxvmc' 'pixman>=0.27.1' 'xcb-util>=0.3.9' 'libudev'
          'libxcb' 'libxfixes' 'libxshmfence' 'libdrm' 'libxrender'
          'libx11' 'libxdamage' 'libxext' 'libpciaccess')
-makedepends+=('libxv' 'meson'
+makedepends+=('libxv' 'meson>=50'
              # additional deps for intel-virtual-output
              'libxrandr' 'libxinerama' 'libxcursor' 'libxtst' 'libxss')
 optdepends=('libxrandr: for intel-virtual-output'
@@ -36,11 +36,9 @@ build() {
   export CFLAGS+=" -Wno-incompatible-pointer-types"
   export CXXFLAGS=${CXXFLAGS/-fno-plt}
   export LDFLAGS=${LDFLAGS/-Wl,-z,now}
-  # Prevent build errors with meson (need to fiel bug):
   export CFLAGS+=" -I${srcdir}/build"
-  #export CXXFLAGS+=" -I${srcdir}/build"
   
-  artix-meson ${_pkgname}-xlibre-${_pkgname}-${pkgver} build \
+  arch-meson ${_pkgname}-xlibre-${_pkgname}-${pkgver} build \
     -D dri3=true \
     -D tearfree=true \
     -D valgrind=false

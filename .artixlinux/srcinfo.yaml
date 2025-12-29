@@ -1,10 +1,10 @@
 ---
-version: 25.0.0-4
+version: 25.0.0-5
 pkgbase:
   name: xlibre-video-intel
   pkgdesc: Libre fork of X.Org Intel i810/i830/i915/945G/G965+ video drivers
   pkgver: 25.0.0
-  pkgrel: 4
+  pkgrel: 5
   url: https://github.com/X11Libre/xf86-video-intel
   install: xlibre-video-intel.install
   arch:
@@ -17,7 +17,7 @@ pkgbase:
     - xlibre-xserver-devel>=25.0
     - xorgproto
     - libxv
-    - meson
+    - meson>=50
     - libxrandr
     - libxinerama
     - libxcursor
@@ -28,8 +28,9 @@ pkgbase:
     - glibc
     - mesa
     - libxvmc
-    - pixman
+    - pixman>=0.27.1
     - xcb-util>=0.3.9
+    - libudev
     - libxcb
     - libxfixes
     - libxshmfence
