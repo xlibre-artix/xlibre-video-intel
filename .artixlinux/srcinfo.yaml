@@ -17,7 +17,7 @@ pkgbase:
     - xlibre-xserver-devel>=25.0
     - xorgproto
     - libxv
-    - meson>=50
+    - meson>=0.50
     - libxrandr
     - libxinerama
     - libxcursor

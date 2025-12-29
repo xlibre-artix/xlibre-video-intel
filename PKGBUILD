@@ -18,7 +18,7 @@ groups=('xlibre-drivers')
 depends+=('mesa' 'libxvmc' 'pixman>=0.27.1' 'xcb-util>=0.3.9' 'libudev'
          'libxcb' 'libxfixes' 'libxshmfence' 'libdrm' 'libxrender'
          'libx11' 'libxdamage' 'libxext' 'libpciaccess')
-makedepends+=('libxv' 'meson>=50'
+makedepends+=('libxv' 'meson>=0.50'
              # additional deps for intel-virtual-output
              'libxrandr' 'libxinerama' 'libxcursor' 'libxtst' 'libxss')
 optdepends=('libxrandr: for intel-virtual-output'
