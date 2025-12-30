@@ -38,7 +38,7 @@ pkgbase:
     - libx11
     - libxdamage
     - libxext
-    - libpciaccess>= 0.10
+    - libpciaccess>=0.10
   optdepends:
     - 'libxrandr: for intel-virtual-output'
     - 'libxinerama: for intel-virtual-output'

@@ -17,7 +17,7 @@ source=("${url}/archive/refs/tags/xlibre-${_pkgname}-${pkgver}.tar.gz")
 groups=('xlibre-drivers')
 depends+=('mesa' 'libxvmc' 'pixman>=0.27.1' 'xcb-util>=0.3.9'
          'libxcb' 'libxfixes' 'libxshmfence' 'libdrm' 'libxrender'
-         'libx11' 'libxdamage' 'libxext' 'libpciaccess>= 0.10')
+         'libx11' 'libxdamage' 'libxext' 'libpciaccess>=0.10')
 makedepends+=('libxv' 'meson>=0.50'
              # additional deps for intel-virtual-output
              'libxrandr' 'libxinerama' 'libxcursor' 'libxtst' 'libxss')
@@ -32,12 +32,37 @@ replaces=('xf86-video-intel-sna' 'xf86-video-intel-uxa'
 options=('!lto')
 
 build() {
-  export CFLAGS=${CFLAGS/-fno-plt}
-  export CFLAGS+=" -Wno-incompatible-pointer-types"
-  export CXXFLAGS=${CXXFLAGS/-fno-plt}
-  export LDFLAGS=${LDFLAGS/-Wl,-z,now}
+  case "$CARCH" in
+    "x86_64")
+      CFLAGS=" -march=x86-64"
+      ;;
+    "aarch64")
+      CFLAGS=" -march=armv8-a"
+      ;;
+    *)
+      CFLAGS=" -march=native"
+      ;;
+  esac
+  CFLAGS+=" -mtune=generic -O2 -pipe -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security"
+  CFLAGS+=" -fstack-clash-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer"
+  LDFLAGS=" -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,lazy -Wl,-z,relro -Wl,-z,pack-relative-relocs"
+  if [[ $CARCH != 'aarch64' ]]; then
+    CFLAGS+=" -fcf-protection"
+  fi
+  if [[ "$_pkgname" == *"xf86-input"* ]]; then
+    CFLAGS+=" -fno-plt"
+    LDFLAGS+=" -Wl,-z,now"
+  fi
+  if [[ "$_pkgname" == *"xf86-video-intel"* ]]; then
+    CFLAGS+=" -fno-lto"
+    LDFLAGS+=" -fno-lto"
+  fi
+  CXXFLAGS="${CFLAGS} -Wp,-D_GLIBCXX_ASSERTIONS"
+  export CFLAGS="${CFLAGS}"
+  export CXXFLAGS="${CXXFLAGS}"
+  export LDFLAGS="${LDFLAGS}"
+
   export CFLAGS+=" -I${srcdir}/build"
-  
   arch-meson ${_pkgname}-xlibre-${_pkgname}-${pkgver} build \
     -D dri3=true \
     -D tearfree=true \
