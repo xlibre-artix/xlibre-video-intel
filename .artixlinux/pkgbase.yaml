@@ -50,9 +50,9 @@ repos:
     packages: []
     debug: []
   galaxy-gremlins:
-    version: 25.0.0-7
+    version: 25.0.1-1
     packages:
-      - xlibre-video-intel-25.0.0-7-x86_64.pkg.tar.zst
+      - xlibre-video-intel-25.0.1-1-x86_64.pkg.tar.zst
     debug: []
   galaxy:
     version: null
