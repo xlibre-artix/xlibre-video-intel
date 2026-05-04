@@ -1,8 +1,8 @@
 ---
-team: galaxy
+team: world
 actions:
-  addRepo: world-gremlins
-  removeRepo: galaxy-gremlins
+  addRepo: world
+  removeRepo: world-gremlins
   triggersBuild: false
   triggersRebuild: false
   triggersRepoAdd: true
@@ -26,13 +26,13 @@ repos:
     packages: []
     debug: []
   world-gremlins:
+    version: null
+    packages: []
+    debug: []
+  world:
     version: 25.0.1-1
     packages:
       - xlibre-video-intel-25.0.1-1-x86_64.pkg.tar.zst
-    debug: []
-  world:
-    version: null
-    packages: []
     debug: []
   lib32-goblins:
     version: null
