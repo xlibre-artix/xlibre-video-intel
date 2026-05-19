@@ -2,11 +2,11 @@
 team: world
 actions:
   addRepo: world
-  removeRepo: world-gremlins
-  triggersBuild: false
+  removeRepo: null
+  triggersBuild: true
   triggersRebuild: false
   triggersRepoAdd: true
-  triggersRepoRemove: true
+  triggersRepoRemove: false
   triggersNoCheck: false
 repos:
   system-goblins:
@@ -30,9 +30,9 @@ repos:
     packages: []
     debug: []
   world:
-    version: 25.0.1-1
+    version: 25.0.2-1
     packages:
-      - xlibre-video-intel-25.0.1-1-x86_64.pkg.tar.zst
+      - xlibre-video-intel-25.0.2-1-x86_64.pkg.tar.zst
     debug: []
   lib32-goblins:
     version: null

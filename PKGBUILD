@@ -1,7 +1,7 @@
 # Maintainer: artist for Artix Linux and XLibre <artist@artixlinux.org>
 
 pkgname=xlibre-video-intel
-pkgver=25.0.1
+pkgver=25.0.2
 pkgrel=1
 arch=(x86_64 aarch64)
 license=('MIT')
@@ -82,4 +82,4 @@ package() {
   install -Dm644 "${srcdir}"/${_pkgname}-xlibre-${_pkgname}-${pkgver}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
 
-sha256sums=('9b6ff841a7a921dcca50b3f6e01e84fab4ffba71677b83f8e82d10695bf59f5d')
+sha256sums=('e4513cf871374cc5df4d0ae5dcd2787539c38801295ab5a9b3470cf0dd193a43')
