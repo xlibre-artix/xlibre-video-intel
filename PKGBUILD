@@ -2,7 +2,7 @@
 
 pkgname=xlibre-video-intel
 pkgver=25.0.2
-pkgrel=1
+pkgrel=2
 arch=(x86_64 aarch64)
 license=('MIT')
 install=$pkgname.install
