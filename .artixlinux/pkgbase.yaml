@@ -26,9 +26,9 @@ repos:
     packages: []
     debug: []
   world-gremlins:
-    version: 25.0.2-2
+    version: 25.0.2-3
     packages:
-      - xlibre-video-intel-25.0.2-2-x86_64.pkg.tar.zst
+      - xlibre-video-intel-25.0.2-3-x86_64.pkg.tar.zst
     debug: []
   world:
     version: 25.0.2-1
