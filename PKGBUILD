@@ -7,7 +7,7 @@
 pkgname=xlibre-video-intel
 _pkgname=xf86-video-intel
 pkgver=25.0.0
-pkgrel=1
+pkgrel=50
 arch=(x86_64)
 url='https://github.com/X11Libre/xf86-video-intel'
 license=('MIT')
